@@ -30,8 +30,17 @@ let gSteps = [], gIndex = 0;
 function runGrammar() {
   const s = document.getElementById('gInput').value.trim();
   const isNum = /^-?(0|[1-9][0-9]*)$/.test(s);
+
+   // Detectar caracteres inválidos
+  const invalidChars = s.replace(/[-0-9]/g, '');
   if (!isNum) {
-    showAlert('gAlert', 'Cadena inválida.', 'warning');
+    let msg = 'Cadena inválida.';
+    if (invalidChars.length > 0) {
+      // Mostrar los caracteres inválidos encontrados, sin repeticiones
+      const unique = [...new Set(invalidChars.split(''))].join(', ');
+      msg += ` Caracteres no permitidos: <b>${unique}</b>`;
+    }
+    showAlert('gAlert', msg, 'warning');
     return;
   }
 
@@ -163,8 +172,17 @@ let tSteps = [], tIndex = -1;
  */
 function prepareTM() {
   const s = document.getElementById('tInput').value.trim();
-  if (!/^-?(0|[1-9][0-9]*)$/.test(s)) {
-    showAlert('tAlert', 'Cadena inválida para MT.', 'warning');
+  const isNum = /^-?(0|[1-9][0-9]*)$/.test(s);
+
+  // Detectar caracteres inválidos
+  const invalidChars = s.replace(/[-0-9]/g, '');
+  if (!isNum) {
+    let msg = 'Cadena inválida para MT.';
+    if (invalidChars.length > 0) {
+      const unique = [...new Set(invalidChars.split(''))].join(', ');
+      msg += ` Caracteres no permitidos: <b>${unique}</b>`;
+    }
+    showAlert('tAlert', msg, 'warning');
     return;
   }
 
