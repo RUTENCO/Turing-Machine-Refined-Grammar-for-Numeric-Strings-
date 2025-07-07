@@ -27,7 +27,7 @@
 </head>
 
 <body class="custom-bg">
-  <div class="container py-4">
+  <div class="container-fluid py-4">
     <h1 class="mb-4 text-center">Simulación Interactiva: Gramática y Máquina de Turing</h1>
 
     <!-- ============================== -->
@@ -38,6 +38,7 @@
       <p>Gramática Refinada para Cadenas Numéricas:</p>
 
       <!-- Tabla con las producciones gramaticales numeradas -->
+      <div class="table-responsive">
       <table class="table grammar-table">
         <thead class="table-dark">
           <tr><th>#</th><th>Producción</th></tr>
@@ -64,6 +65,7 @@
           <tr class="r18"><td>18</td><td>DigitoNoCero → '9'</td></tr>
         </tbody>
       </table>
+      </div>
 
       <!-- Entrada del usuario para analizar la cadena con la gramática -->
       <div class="input-group mb-3">
@@ -80,7 +82,7 @@
         <ul id="gSteps" class="list-group mb-3"></ul>
       </div>
       <!-- Botones de navegación entre pasos de derivación -->
-      <div class="d-flex justify-content-between">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-between">
         <button class="btn btn-prev btn-lg" onclick="prevG()">
           <span aria-hidden="true">&larr;</span> Anterior
         </button>
@@ -120,7 +122,7 @@
       </div>
       
       <!-- Botones para simular los pasos de la máquina de Turing -->
-      <div class="d-flex justify-content-between">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-between">
         <button class="btn btn-prev btn-lg" onclick="prevT()">
           <span aria-hidden="true">&larr;</span> Anterior
         </button>
