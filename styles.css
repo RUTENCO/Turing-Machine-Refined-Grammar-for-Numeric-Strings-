@@ -22,6 +22,16 @@ body.custom-bg {
   min-height: 100vh;
 }
 
+.container-fluid {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
 input.form-control {
   font-size: 1.15rem;
   padding: 0.75rem 1rem;
@@ -43,6 +53,7 @@ section {
 h1, h2 {
   font-family: 'Fira Code', monospace;
 }
+
 
 /* ====================================== */
 /* Estilos específicos para la gramática */
@@ -324,6 +335,21 @@ h1, h2 {
 
 .alert {
   transition: opacity 0.5s;
+}
+
+.main-center {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  background: transparent;
+}
+
+@media (max-width: 991px) {
+  .main-center {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 @media (max-width: 600px) {
