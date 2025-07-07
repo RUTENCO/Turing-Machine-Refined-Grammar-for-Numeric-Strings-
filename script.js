@@ -41,6 +41,9 @@ function runGrammar() {
       msg += ` Caracteres no permitidos: <b>${unique}</b>`;
     }
     showAlert('gAlert', msg, 'warning');
+    setTimeout(() => {
+    document.getElementById('gAlert').innerHTML = '';
+    }, 2000); // 2000 ms = 2 segundos
     return;
   }
 
@@ -183,6 +186,9 @@ function prepareTM() {
       msg += ` Caracteres no permitidos: <b>${unique}</b>`;
     }
     showAlert('tAlert', msg, 'warning');
+    setTimeout(() => {
+    document.getElementById('tAlert').innerHTML = '';
+    }, 2000); // 2000 ms = 2 segundos
     return;
   }
 
