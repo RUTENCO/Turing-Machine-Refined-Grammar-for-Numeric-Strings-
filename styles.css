@@ -55,7 +55,7 @@ h1, h2 {
 
 .grammar-table tbody tr:hover > td {
   filter: brightness(1.08);
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 /* Codificación por color para cada regla gramatical (r1 a r18) */
