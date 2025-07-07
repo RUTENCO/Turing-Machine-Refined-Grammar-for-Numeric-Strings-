@@ -43,7 +43,7 @@ function runGrammar() {
     showAlert('gAlert', msg, 'warning');
     setTimeout(() => {
       document.getElementById('gAlert').innerHTML = '';
-    }, 2000); // 2000 ms = 2 segundos
+    }, 3000); // 3000 ms = 3 segundos
     return;
   }
 
@@ -193,7 +193,7 @@ function prepareTM() {
     showAlert('tAlert', msg, 'warning');
     setTimeout(() => {
       document.getElementById('tAlert').innerHTML = '';
-    }, 2000); // 2000 ms = 2 segundos
+    }, 3000); // 3000 ms = 3 segundos
     return;
   }
 
@@ -230,7 +230,7 @@ function prepareTM() {
   showAlert('tAlert', 'Cadena cargada correctamente para la Máquina de Turing.', 'success');
   setTimeout(() => {
     document.getElementById('tAlert').innerHTML = '';
-  }, 2000); // 2000 ms = 2 segundos
+  }, 3000); // 3000 ms = 3 segundos
 }
 
 /**
