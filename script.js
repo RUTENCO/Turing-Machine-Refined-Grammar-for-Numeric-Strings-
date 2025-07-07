@@ -42,8 +42,8 @@ function runGrammar() {
     }
     showAlert('gAlert', msg, 'warning');
     setTimeout(() => {
-    document.getElementById('gAlert').innerHTML = '';
-    }, 2000); // 2000 ms = 2 segundos
+      document.getElementById('gAlert').innerHTML = '';
+    }, 1500); // 1500 ms = 1.5 segundos
     return;
   }
 
@@ -129,6 +129,11 @@ function renderG() {
     if (i === gIndex) li.classList.add('highlight');
     ul.appendChild(li);
   });
+
+
+  const current = ul.querySelector('.highlight');
+  if (current) current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
 }
 
 // Navegación entre pasos
@@ -187,8 +192,8 @@ function prepareTM() {
     }
     showAlert('tAlert', msg, 'warning');
     setTimeout(() => {
-    document.getElementById('tAlert').innerHTML = '';
-    }, 2000); // 2000 ms = 2 segundos
+      document.getElementById('tAlert').innerHTML = '';
+    }, 1500); // 1500 ms = 1.5 segundos
     return;
   }
 
@@ -225,7 +230,7 @@ function prepareTM() {
   showAlert('tAlert', 'Cadena cargada correctamente para la Máquina de Turing.', 'success');
   setTimeout(() => {
     document.getElementById('tAlert').innerHTML = '';
-  }, 2000); // 2000 ms = 2 segundos
+  }, 1500); // 1500 ms = 1.5 segundos
 }
 
 /**
@@ -247,10 +252,16 @@ function nextT() {
     });
 
     const tr = document.createElement('tr');
+    if (st.newState === 'qacepta') tr.classList.add('accept');
+    if (st.newState === 'qrechaza') tr.classList.add('reject');
+    tr.classList.add('current');
+    setTimeout(() => tr.classList.remove('current'), 400); // resalta brevemente la fila actual
     tr.innerHTML = `
       <td>${st.step}</td><td>${st.state}</td><td>${st.read}</td>
       <td>${st.write}</td><td>${st.move}</td><td>${st.newState}</td>`;
     document.querySelector('#tTable tbody').appendChild(tr);
+    // Enfoca la última fila agregada
+    tr.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 }
 

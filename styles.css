@@ -24,6 +24,23 @@ body.custom-bg {
   min-height: 100vh;
 }
 
+input.form-control {
+  font-size: 1.15rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e3ecfc;
+}
+
+.btn:focus {
+  outline: 2px solid #4e79a7;
+  outline-offset: 2px;
+}
+
 /* Títulos con fuente monoespaciada */
 h1, h2 {
   font-family: 'Fira Code', monospace;
@@ -38,25 +55,31 @@ h1, h2 {
   background: none !important;
 }
 
+.grammar-table tbody tr:hover > td {
+  filter: brightness(1.08);
+  cursor: pointer;
+}
+
 /* Codificación por color para cada regla gramatical (r1 a r18) */
-.grammar-table tbody > tr.r1  > td { background: #4e79a7 !important; color: #fff !important; }
-.grammar-table tbody > tr.r2  > td { background: #f28e2c !important; color: #fff !important; }
-.grammar-table tbody > tr.r3  > td { background: #e15759 !important; color: #fff !important; }
-.grammar-table tbody > tr.r4  > td { background: #76b7b2 !important; color: #fff !important; }
-.grammar-table tbody > tr.r5  > td { background: #59a14f !important; color: #fff !important; }
-.grammar-table tbody > tr.r6  > td { background: #edc949 !important; color: #fff !important; }
-.grammar-table tbody > tr.r7  > td { background: #af7aa1 !important; color: #fff !important; }
-.grammar-table tbody > tr.r8  > td { background: #ff9da7 !important; color: #fff !important; }
-.grammar-table tbody > tr.r9  > td { background: #9c755f !important; color: #fff !important; }
-.grammar-table tbody > tr.r10 > td { background: #bab0ac !important; color: #fff !important; }
-.grammar-table tbody > tr.r11 > td { background: #86bcdb !important; color: #fff !important; }
-.grammar-table tbody > tr.r12 > td { background: #fdb462 !important; color: #fff !important; }
-.grammar-table tbody > tr.r13 > td { background: #b276b2 !important; color: #fff !important; }
-.grammar-table tbody > tr.r14 > td { background: #8cd17d !important; color: #fff !important; }
-.grammar-table tbody > tr.r15 > td { background: #e15759 !important; color: #fff !important; }
-.grammar-table tbody > tr.r16 > td { background: #4e79a7 !important; color: #fff !important; }
-.grammar-table tbody > tr.r17 > td { background: #f28e2c !important; color: #fff !important; }
-.grammar-table tbody > tr.r18 > td { background: #59a14f !important; color: #fff !important; }
+/* Colores para la tabla de gramática (fondo de cada regla) */
+.grammar-table tbody > tr.r1  > td { background: #1976d2 !important; color: #fff !important; }
+.grammar-table tbody > tr.r2  > td { background: #43a047 !important; color: #fff !important; }
+.grammar-table tbody > tr.r3  > td { background: #fbc02d !important; color: #fff !important; }
+.grammar-table tbody > tr.r4  > td { background: #8e24aa !important; color: #fff !important; }
+.grammar-table tbody > tr.r5  > td { background: #e53935 !important; color: #fff !important; }
+.grammar-table tbody > tr.r6  > td { background: #00acc1 !important; color: #fff !important; }
+.grammar-table tbody > tr.r7  > td { background: #f57c00 !important; color: #fff !important; }
+.grammar-table tbody > tr.r8  > td { background: #6d4c41 !important; color: #fff !important; }
+.grammar-table tbody > tr.r9  > td { background: #c0ca33 !important; color: #fff !important; }
+.grammar-table tbody > tr.r10 > td { background: #3949ab !important; color: #fff !important; }
+.grammar-table tbody > tr.r11 > td { background: #00897b !important; color: #fff !important; }
+.grammar-table tbody > tr.r12 > td { background: #d81b60 !important; color: #fff !important; }
+.grammar-table tbody > tr.r13 > td { background: #ffb300 !important; color: #fff !important; }
+.grammar-table tbody > tr.r14 > td { background: #5e35b1 !important; color: #fff !important; }
+.grammar-table tbody > tr.r15 > td { background: #43a047 !important; color: #fff !important; }
+.grammar-table tbody > tr.r16 > td { background: #039be5 !important; color: #fff !important; }
+.grammar-table tbody > tr.r17 > td { background: #c62828 !important; color: #fff !important; }
+.grammar-table tbody > tr.r18 > td { background: #7cb342 !important; color: #fff !important; }
 
 /* Fila actualmente activa en la gramática */
 .grammar-table tr.active {
@@ -77,29 +100,72 @@ h1, h2 {
 
 /* Paso actualmente resaltado */
 .list-group-item.highlight {
-  background: #fcf8e3;
-  border-left: 5px solid #f0ad4e;
+  background: #e3ecfc;
+  border-left: 5px solid #1976d2;
+  font-weight: bold;
+}
+
+.list-group-item.highlight {
+  transition: background 0.3s, border-left 0.3s;
+}
+
+.gSteps-container {
+  max-height: 260px;      /* Ajusta la altura máxima a tu gusto */
+  max-width: 100%;        /* O un ancho fijo si prefieres */
+  overflow-y: auto;
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px 0 rgba(106,137,204,0.10);
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+}
+#gSteps {
+  min-width: 400px;       /* Fuerza scroll horizontal si hay pasos muy largos */
 }
 
 /* Colores en los textos "Regla X" dentro de pasos, igual a los de las filas */
-.step .r1  { color: #4e79a7; }
-.step .r2  { color: #f28e2c; }
-.step .r3  { color: #e15759; }
-.step .r4  { color: #76b7b2; }
-.step .r5  { color: #59a14f; }
-.step .r6  { color: #edc949; }
-.step .r7  { color: #af7aa1; }
-.step .r8  { color: #ff9da7; }
-.step .r9  { color: #9c755f; }
-.step .r10 { color: #bab0ac; }
-.step .r11 { color: #86bcdb; }
-.step .r12 { color: #fdb462; }
-.step .r13 { color: #b276b2; }
-.step .r14 { color: #8cd17d; }
-.step .r15 { color: #e15759; }
-.step .r16 { color: #4e79a7; }
-.step .r17 { color: #f28e2c; }
-.step .r18 { color: #59a14f; }
+/* Colores para los textos "Regla X" en los pasos */
+.step .r1  { color: #1976d2; font-weight: bold; }
+.step .r2  { color: #43a047; font-weight: bold; }
+.step .r3  { color: #fbc02d; font-weight: bold; }
+.step .r4  { color: #8e24aa; font-weight: bold; }
+.step .r5  { color: #e53935; font-weight: bold; }
+.step .r6  { color: #00acc1; font-weight: bold; }
+.step .r7  { color: #f57c00; font-weight: bold; }
+.step .r8  { color: #6d4c41; font-weight: bold; }
+.step .r9  { color: #c0ca33; font-weight: bold; }
+.step .r10 { color: #3949ab; font-weight: bold; }
+.step .r11 { color: #00897b; font-weight: bold; }
+.step .r12 { color: #d81b60; font-weight: bold; }
+.step .r13 { color: #ffb300; font-weight: bold; }
+.step .r14 { color: #5e35b1; font-weight: bold; }
+.step .r15 { color: #43a047; font-weight: bold; }
+.step .r16 { color: #039be5; font-weight: bold; }
+.step .r17 { color: #c62828; font-weight: bold; }
+.step .r18 { color: #7cb342; font-weight: bold; }
+
+.step .r1,
+.step .r2,
+.step .r3,
+.step .r4,
+.step .r5,
+.step .r6,
+.step .r7,
+.step .r8,
+.step .r9,
+.step .r10,
+.step .r11,
+.step .r12,
+.step .r13,
+.step .r14,
+.step .r15,
+.step .r16,
+.step .r17,
+.step .r18 {
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.10);
+}
 
 /* =================================== */
 /* Estilos para la cinta de la MT     */
@@ -107,29 +173,47 @@ h1, h2 {
 
 #tape {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   gap: 4px;
   font-family: 'Fira Code', monospace;
   margin-bottom: 1rem;
+  box-shadow: 0 2px 12px 0 rgba(106,137,204,0.10);
+  border-radius: 8px;
+  padding: 12px 0; /* Solo padding vertical */
+  background: #fff;
+  overflow-x: auto;
 }
 
-/* Celda individual de la cinta */
+.cell:first-child { margin-left: 0; }
+.cell:last-child  { margin-right: 8px; }
+
+/* Cinta más suave y moderna */
 .cell {
   width: 32px;
   height: 40px;
-  border: 1px solid #666;
+  border: 1px solid #b8a9f4;      /* Borde lila claro */
+  background: #f5fafd;            /* Fondo casi blanco con tinte azul */
+  color: #222;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
   position: relative;
 }
 
 /* Celda que representa la posición del cabezal */
 .cell.head {
-  background: #ffeaa7;
-  border-color: #e17055;
+  background: #e3ecfc;            /* Azul claro, combina con el fondo */
+  border-color: #6a89cc;          /* Azul suave */
+}
+
+.cell.head {
+  animation: head-blink 0.5s;
+}
+@keyframes head-blink {
+  0% { box-shadow: 0 0 0 0 #6a89cc; }
+  50% { box-shadow: 0 0 10px 2px #6a89cc; }
+  100% { box-shadow: 0 0 0 0 #6a89cc; }
 }
 
 /* Flecha visual encima del cabezal */
@@ -137,5 +221,101 @@ h1, h2 {
   content: '↓';
   position: absolute;
   top: -18px;
-  color: #e17055;
+  color: #6a89cc;                 /* Azul suave para la flecha */
+  font-size: 1.2em;
+}
+
+
+/* Contenedor con scroll para la tabla de estados de la MT */
+.tTable-container {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px 0 rgba(106,137,204,0.10);
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+#tTable {
+  width: 100%;
+  min-width: 700px; /* O el valor que prefieras para forzar scroll horizontal */
+  border-radius: 10px;
+}
+
+/* Estilos para la tabla de transiciones de la MT */
+
+#tTable.table tbody tr.accept td,
+#tTable.table-striped tbody tr.accept td,
+#tTable tbody tr.accept td {
+  background: #d4edda !important;
+  color: #155724 !important;
+  font-weight: bold !important;
+}
+
+#tTable.table tbody tr.reject td,
+#tTable.table-striped tbody tr.reject td,
+#tTable tbody tr.reject td {
+  background: #f8d7da !important;
+  color: #721c24 !important;
+  font-weight: bold !important;
+}
+
+#tTable.table tbody tr.current td,
+#tTable.table-striped tbody tr.current td,
+#tTable tbody tr.current td {
+  background: #f5e8fc !important;         /* Lila claro, acorde al fondo */
+  border-left: 6px solid #6a89cc !important; /* Azul suave, acorde a la paleta */
+  outline: none !important;
+  box-shadow: 0 2px 8px 0 rgba(106,137,204,0.10); /* Sombra azul suave */
+  transition: background 0.2s, border-left 0.2s;
+}
+
+#tTable thead, 
+#tTable thead tr, 
+#tTable thead th {
+  background: linear-gradient(90deg, #4e79a7 0%, #59a14f 100%) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+
+#tTable tbody tr:hover > td {
+  background: #e3ecfc !important;
+}
+
+/* Opcional: bordes redondeados */
+#tTable {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+/* Botón Anterior: azul */
+.btn-prev {
+  background: #4e79a7;
+  color: #fff;
+  border: none;
+  transition: background 0.2s;
+}
+.btn-prev:hover, .btn-prev:focus {
+  background: #37608a;
+  color: #fff;
+}
+
+/* Botón Siguiente: verde */
+.btn-next {
+  background: #59a14f;
+  color: #fff;
+  border: none;
+  transition: background 0.2s;
+}
+.btn-next:hover, .btn-next:focus {
+  background: #417a3a;
+  color: #fff;
+}
+
+.alert {
+  transition: opacity 0.5s;
 }
