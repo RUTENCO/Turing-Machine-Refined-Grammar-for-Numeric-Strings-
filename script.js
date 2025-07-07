@@ -214,6 +214,12 @@ function prepareTM() {
   tIndex = -1;
   document.getElementById('tape').innerHTML = '';
   document.querySelector('#tTable tbody').innerHTML = '';
+
+  /*alerta de éxito*/
+  showAlert('tAlert', 'Cadena cargada correctamente para la Máquina de Turing.', 'success');
+  setTimeout(() => {
+    document.getElementById('tAlert').innerHTML = '';
+  }, 2000); // 2000 ms = 2 segundos
 }
 
 /**
