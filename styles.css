@@ -27,8 +27,7 @@ body.custom-bg {
   margin-bottom: 2rem;
   margin-left: 0;
   margin-right: 0;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  
 }
 
 
@@ -342,13 +341,15 @@ h1, h2 {
   margin-right: auto;
   max-width: 900px;
   background: transparent;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 @media (max-width: 991px) {
   .main-center {
     max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
 
