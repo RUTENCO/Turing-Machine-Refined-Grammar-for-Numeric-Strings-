@@ -100,7 +100,7 @@ qacepta: Estado final de aceptación
 
 01
 
--
+2+5
 
 abc
 
