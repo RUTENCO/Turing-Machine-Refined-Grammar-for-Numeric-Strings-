@@ -1,0 +1,141 @@
+/*
+  Archivo: styles.css
+  Proyecto: Simulación de Gramática y Máquina de Turing
+  Descripción:
+    - Define estilos personalizados para la visualización de la gramática y la máquina de Turing.
+    - Usa codificación de colores para reglas y pasos.
+    - Estiliza la cinta de la máquina de Turing y los elementos activos.
+  Autor: [Tu nombre]
+  Fecha: [Fecha del documento]
+*/
+
+/* ======================= */
+/* Fuentes tipográficas    */
+/* ======================= */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700&display=swap');
+
+/* ======================= */
+/* Estilos globales        */
+/* ======================= */
+body.custom-bg {
+  font-family: 'Inter', sans-serif;
+  /* Fondo degradado suave en diagonal */
+  background: linear-gradient(135deg, #e3ecfc 0%, #f5e8fc 100%);
+  min-height: 100vh;
+}
+
+/* Títulos con fuente monoespaciada */
+h1, h2 {
+  font-family: 'Fira Code', monospace;
+}
+
+/* ====================================== */
+/* Estilos específicos para la gramática */
+/* ====================================== */
+
+/* Anula cualquier color alterno por defecto */
+.grammar-table tbody tr {
+  background: none !important;
+}
+
+/* Codificación por color para cada regla gramatical (r1 a r18) */
+.grammar-table tbody > tr.r1  > td { background: #4e79a7 !important; color: #fff !important; }
+.grammar-table tbody > tr.r2  > td { background: #f28e2c !important; color: #fff !important; }
+.grammar-table tbody > tr.r3  > td { background: #e15759 !important; color: #fff !important; }
+.grammar-table tbody > tr.r4  > td { background: #76b7b2 !important; color: #fff !important; }
+.grammar-table tbody > tr.r5  > td { background: #59a14f !important; color: #fff !important; }
+.grammar-table tbody > tr.r6  > td { background: #edc949 !important; color: #fff !important; }
+.grammar-table tbody > tr.r7  > td { background: #af7aa1 !important; color: #fff !important; }
+.grammar-table tbody > tr.r8  > td { background: #ff9da7 !important; color: #fff !important; }
+.grammar-table tbody > tr.r9  > td { background: #9c755f !important; color: #fff !important; }
+.grammar-table tbody > tr.r10 > td { background: #bab0ac !important; color: #fff !important; }
+.grammar-table tbody > tr.r11 > td { background: #86bcdb !important; color: #fff !important; }
+.grammar-table tbody > tr.r12 > td { background: #fdb462 !important; color: #fff !important; }
+.grammar-table tbody > tr.r13 > td { background: #b276b2 !important; color: #fff !important; }
+.grammar-table tbody > tr.r14 > td { background: #8cd17d !important; color: #fff !important; }
+.grammar-table tbody > tr.r15 > td { background: #e15759 !important; color: #fff !important; }
+.grammar-table tbody > tr.r16 > td { background: #4e79a7 !important; color: #fff !important; }
+.grammar-table tbody > tr.r17 > td { background: #f28e2c !important; color: #fff !important; }
+.grammar-table tbody > tr.r18 > td { background: #59a14f !important; color: #fff !important; }
+
+/* Fila actualmente activa en la gramática */
+.grammar-table tr.active {
+  outline: none !important;
+  border-left: 8px solid #222 !important;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  /* También se puede usar: filter: brightness(0); */
+}
+
+/* ======================================= */
+/* Estilos para los pasos de derivación   */
+/* ======================================= */
+
+/* Pasos con fuente tipo código */
+.list-group-item.step {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Paso actualmente resaltado */
+.list-group-item.highlight {
+  background: #fcf8e3;
+  border-left: 5px solid #f0ad4e;
+}
+
+/* Colores en los textos "Regla X" dentro de pasos, igual a los de las filas */
+.step .r1  { color: #4e79a7; }
+.step .r2  { color: #f28e2c; }
+.step .r3  { color: #e15759; }
+.step .r4  { color: #76b7b2; }
+.step .r5  { color: #59a14f; }
+.step .r6  { color: #edc949; }
+.step .r7  { color: #af7aa1; }
+.step .r8  { color: #ff9da7; }
+.step .r9  { color: #9c755f; }
+.step .r10 { color: #bab0ac; }
+.step .r11 { color: #86bcdb; }
+.step .r12 { color: #fdb462; }
+.step .r13 { color: #b276b2; }
+.step .r14 { color: #8cd17d; }
+.step .r15 { color: #e15759; }
+.step .r16 { color: #4e79a7; }
+.step .r17 { color: #f28e2c; }
+.step .r18 { color: #59a14f; }
+
+/* =================================== */
+/* Estilos para la cinta de la MT     */
+/* =================================== */
+
+#tape {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 1rem;
+}
+
+/* Celda individual de la cinta */
+.cell {
+  width: 32px;
+  height: 40px;
+  border: 1px solid #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  position: relative;
+}
+
+/* Celda que representa la posición del cabezal */
+.cell.head {
+  background: #ffeaa7;
+  border-color: #e17055;
+}
+
+/* Flecha visual encima del cabezal */
+.cell.head::before {
+  content: '↓';
+  position: absolute;
+  top: -18px;
+  color: #e17055;
+}
