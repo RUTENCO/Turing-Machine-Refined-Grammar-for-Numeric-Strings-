@@ -49,7 +49,7 @@ section {
 }
 
 /* Títulos con fuente monoespaciada */
-h1, h2 {
+h1, h2, h3 {
   font-family: 'Fira Code', monospace;
 }
 
@@ -390,4 +390,135 @@ h1, h2 {
     font-size: 1rem;
     padding: 0.5rem 0.8rem;
   }
+}
+
+
+/* ============================== */
+/* Leyenda (Accordion) personalizado */
+/* ============================== */
+#legendAccordion {
+  margin-bottom: 2rem;
+}
+
+/* Título h3 acorde a h2 */
+#legendAccordion + .input-group,
+#legendAccordion h3 {
+  font-family: 'Fira Code', monospace;
+  color: #222;           /* color principal */
+  margin-bottom: 0.5rem;
+}
+
+/* Cada item sin borde duro */
+.accordion-item {
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Botones del accordion igual a los prev/next */
+.accordion-button {
+  font-family: 'Fira Code', monospace;
+  background: #e3ecfc;          /* color suave de fondo */
+  color: #333;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  transition: background 0.2s;
+}
+
+/* Icono y texto bien visibles */
+.accordion-button::after {
+  filter: invert(20%);
+}
+
+/* Hover y focus matching botones */
+.accordion-button:hover, .accordion-button:focus {
+  background: #d1dff8;
+  color: #111;
+}
+
+/* Cuerpo del acordeón */
+.accordion-body {
+  background: #fdfdfd;
+  padding: 1rem;
+  font-size: 0.95rem;
+  border-top: 1px solid #e3ecfc;
+}
+
+/* Listas internas sin márgenes extra */
+.accordion-body ul {
+  margin-bottom: 0;
+  padding-left: 1.2rem;
+}
+
+/* Disminuir padding en móvil */
+@media (max-width: 600px) {
+  .accordion-button {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .accordion-body {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ============================== */
+/* Ajustes de tipografía y color del acordeón */
+/* ============================== */
+
+/* 1) Forzar monospace en los botones del accordion y títulos h3 */
+.accordion-button,
+#legendAccordion h3 {
+  font-family: 'Fira Code', monospace;
+  color: #4e79a7;           /* Azul oscuro del tema */
+}
+
+/* 2) Colorear los <code>qX</code> dentro del header para que destaquen */
+.accordion-button code {
+  background: rgba(78, 121, 167, 0.1);  /* Azul muy suave */
+  color: #4e79a7;                       /* Azul del tema */
+  padding: 0.1em 0.3em;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  font-family: 'Fira Code', monospace;
+}
+
+/* 3) Título del acordeón (h3) más grande y con color del tema */
+#legendAccordion h3 {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #4e79a7;
+  padding-left: 0.75rem;
+}
+
+/* 4) Bordes y fondo del header más sutil */
+.accordion-button {
+  background: rgba(78, 121, 167, 0.05);
+  border: 1px solid rgba(78, 121, 167, 0.2);
+}
+
+/* 5) Collapse abierto con fondo ligeramente más oscuro */
+.accordion-button:not(.collapsed) {
+  background: rgba(78, 121, 167, 0.15);
+  color: #2e3e50;
+}
+
+/* 6) Ajustes en el body para las listas de estados */
+.accordion-body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+/* 7) Pequeños “badges” inline para movimientos */
+.accordion-body strong, 
+.accordion-body code {
+  background: rgba(78, 121, 167, 0.1);
+  color: #4e79a7;
+  padding: 0.1em 0.3em;
+  border-radius: 0.2rem;
+  font-weight: 600;
 }

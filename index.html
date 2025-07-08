@@ -100,6 +100,85 @@
       <h2>Simulación de Máquina de Turing</h2>
       <p>MT que decide cadenas numéricas según la gramática anterior.</p>
 
+    
+    <!-- leyenda de estados y movimientos -->
+    <section >
+      <h3>Leyenda de Estados y Movimientos</h3>
+      <div class="accordion" id="legendAccordion">
+        <!-- Estado q0 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingQ0">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQ0" aria-expanded="false" aria-controls="collapseQ0">
+              Estado <code>q0</code> (inicio)
+            </button>
+          </h2>
+          <div id="collapseQ0" class="accordion-collapse collapse" aria-labelledby="headingQ0" data-bs-parent="#legendAccordion">
+            <div class="accordion-body small">
+              <ul class="mb-0">
+                <li>Lee el posible signo <code>-</code> o primer dígito.</li>
+                <li>Si encuentra <code>-</code> pasa a <code>q1</code>; si <code>0</code> a <code>q6</code>; si <code>1–9</code> a <code>q2</code>.</li>
+                <li>Movimiento <strong>R</strong> (derecha) siempre.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estado q1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingQ1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQ1" aria-expanded="false" aria-controls="collapseQ1">
+              Estado <code>q1</code> (tras signo “−”)
+            </button>
+          </h2>
+          <div id="collapseQ1" class="accordion-collapse collapse" aria-labelledby="headingQ1" data-bs-parent="#legendAccordion">
+            <div class="accordion-body small">
+              <ul class="mb-0">
+                <li>Lee el primer dígito tras el signo.</li>
+                <li>Si es <code>0</code> va a <code>q6</code> (único cero); si <code>1–9</code> a <code>q2</code>.</li>
+                <li>Movimiento <strong>R</strong> (derecha).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estado q2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingQ2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQ2" aria-expanded="false" aria-controls="collapseQ2">
+              Estado <code>q2</code> (lectura de dígitos)
+            </button>
+          </h2>
+          <div id="collapseQ2" class="accordion-collapse collapse" aria-labelledby="headingQ2" data-bs-parent="#legendAccordion">
+            <div class="accordion-body small">
+              <ul class="mb-0">
+                <li>Sigue consumiendo dígitos <code>0–9</code>.</li>
+                <li>Cuando lee blanco <code>B</code> pasa a <code>qacepta</code>.</li>
+                <li>Movimiento siempre <strong>R</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estados de aceptación/rechazo -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingQAccept">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQAccept" aria-expanded="false" aria-controls="collapseQAccept">
+              Estados de Aceptación / Rechazo
+            </button>
+          </h2>
+          <div id="collapseQAccept" class="accordion-collapse collapse" aria-labelledby="headingQAccept" data-bs-parent="#legendAccordion">
+            <div class="accordion-body small">
+              <ul class="mb-0">
+                <li><code>qacepta</code>: la MT terminó y acepta la cadena.</li>
+                <li><code>qrechaza</code>: si no hay transición válida, la MT rechaza.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
       <!-- Entrada para la cinta de la MT -->
       <div class="input-group mb-3">
         <input type="text" id="tInput" class="form-control" placeholder="Cadena numérica">
