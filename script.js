@@ -89,7 +89,7 @@ function runGrammar() {
     }
 
     // Paso 6: Finalizar con regla 7
-    gSteps.push("Digitos ⇒ ε (Regla 7)");
+    gSteps.push("Digitos ⇒ λ (Regla 7)");
     gSteps.push(`⇒ "${s}"`);
   }
 
